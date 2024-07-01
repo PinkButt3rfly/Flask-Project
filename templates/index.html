@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butterfly Notes App</title>
+    <!-- Css style for the app -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            background-color: lightpink;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .note-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .note {
+            width: calc(20% - 20px);
+            height: 300px;
+            border: 1px solid white;
+            margin: 0 10px 30px 10px;
+            padding: 10px;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .lightblue {
+            background-color: lightskyblue;
+        }
+
+        .green {
+            background-color: palegreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Butterfly Notes App</h1>
+        <h3>Create a new note:</h3>
+        <form action="/add_note" method="post">
+            <!-- Input field to add new notes -->
+            <input type="text" name="note_text" placeholder="Write a note....">
+            <select name="note_color">
+                <!-- Options to select note color -->
+                <option value="pink">Pink</option>
+                <option value="yellow">Yellow</option>
+                <option value="lightblue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div class="note-container">
+        {% for note in notes %}
+        <!-- Display existing notes -->
+        <div class="note {{ note.color }}">
+            <p>{{ note.text }}</p>
+            <!-- Form for deleting a note -->
+            <form action="/delete_note/{{ loop.index0}}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
