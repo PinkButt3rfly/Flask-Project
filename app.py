@@ -42,14 +42,5 @@ def save_notes():
         json.dump(notes, file, indent=4)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5007)
 
-
-
-
-#@app.route('/news')
-#def new():
-#if (request.method == 'GET'):
-#    return '<h1>Hi this is our news page with GET'
-#else:
-#    return "<p>Hello, World, Greatest1!!!!</p>"

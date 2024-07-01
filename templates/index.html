@@ -10,12 +10,58 @@
             margin: 0;
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
+            background-color: #FFDADF;
         }
 
         .header {
-            background-color: lightpink;
+            background-color: #EF3167;
             padding: 20px;
             text-align: center;
+            border-radius: 16px;
+            color: #FEACC4
+        }
+
+        .input {
+            width: 400px;
+            height: 40px;
+            border: 0;
+            border-radius: 16px;
+            padding-left: 12px;
+            margin-left: 120px;
+            
+        }
+
+        .option {
+            width: 80px;
+            height: 20px;
+            border: 0;
+            border-radius: 6px;
+            background-color: white;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .btn {
+            width: 80px;
+            height: 20px;
+            border: 0;
+            border-radius: 6px;
+            background-color: white;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+
+        .btn2 {
+            width: 80px;
+            height: 20px;
+            border: 0;
+            border-radius: 6px;
+            background-color: white;
+        }
+
+        .main {
+            text-align: center;
+            color: #EF3167;
         }
 
         .note-container {
@@ -39,38 +85,58 @@
         }
 
         .pink {
+            width: 200px;
+            height: 200px;
             background-color: pink;
+            border: 0;
+            border-radius: 16px;
         }
 
-        .yellow {
-            background-color: yellow;
+        .brown {
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+            border: 0;
+            border-radius: 16px;
         }
 
         .lightblue {
+            width: 200px;
+            height: 200px;
             background-color: lightskyblue;
+            border: 0;
+            border-radius: 16px;
         }
 
         .green {
+            width: 200px;
+            height: 200px;
             background-color: palegreen;
+            border: 0;
+            border-radius: 16px;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Butterfly Notes App</h1>
-        <h3>Create a new note:</h3>
+        <h1>Butterfly Note App</h1>
+        <h5>Your daily notes that reminds you:</h5>
         <form action="/add_note" method="post">
             <!-- Input field to add new notes -->
-            <input type="text" name="note_text" placeholder="Write a note....">
-            <select name="note_color">
+            <input class="input" type="text" name="note_text" placeholder="Write a note....">
+            <select class="option" name="note_color">
                 <!-- Options to select note color -->
                 <option value="pink">Pink</option>
-                <option value="yellow">Yellow</option>
+                <option value="brown">Brown</option>
                 <option value="lightblue">Blue</option>
                 <option value="green">Green</option>
             </select>
-            <button type="submit">Add</button>
+            <button class="btn2" type="submit">Add</button>
         </form>
+    </div>
+
+    <div class="main">
+        <h3>My Notes:</h3>
     </div>
 
     <div class="note-container">
@@ -80,10 +146,11 @@
             <p>{{ note.text }}</p>
             <!-- Form for deleting a note -->
             <form action="/delete_note/{{ loop.index0}}" method="post">
-                <button type="submit">Delete</button>
+                <button class="btn" type="submit">Delete</button>
             </form>
         </div>
         {% endfor %}
     </div>
+
 </body>
 </html>

@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "text": "sticky notes are pretty",
+        "color": "pink"
+    },
+    {
+        "text": "hello butterfly",
+        "color": "brown"
+    },
+    {
+        "text": "hey mama",
+        "color": "lightblue"
+    },
+    {
+        "text": "baby",
+        "color": "green"
+    }
+]
