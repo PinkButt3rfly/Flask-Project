@@ -121,7 +121,7 @@
     <div class="header">
         <h1>Butterfly Note App</h1>
         <h5>Your daily notes that reminds you:</h5>
-        <form action="/add_note" method="post">
+        <form action="/add" method="post">
             <!-- Input field to add new notes -->
             <input class="input" type="text" name="note_text" placeholder="Write a note....">
             <select class="option" name="note_color">
@@ -145,7 +145,7 @@
         <div class="note {{ note.color }}">
             <p>{{ note.text }}</p>
             <!-- Form for deleting a note -->
-            <form action="/delete_note/{{ loop.index0}}" method="post">
+            <form action="/delete/{{ loop.index0}}" method="post">
                 <button class="btn" type="submit">Delete</button>
             </form>
         </div>
